@@ -6,19 +6,16 @@
 /*
 * Connecting SCSS sources normalize-css
 */
-
 // @use "normalize/normalize.scss" as *;
 
 /*
 * Connecting SCSS sources reset-css
 */
-
 // @use "reset/reset.scss" as *;
 
 /*
 * Connecting SCSS sources Bootstrap 5
 */
-
 // @use "../../node_modules/bootstrap/scss/bootstrap.scss" as *;
 
 /*
@@ -71,11 +68,16 @@
 // @use "../../node_modules/bootstrap/dist/css/bootstrap-grid.css" as *;
 
 /*
-* fonts
+* Fonts
 */
 @import "fonts/fonts.scss";
 
 /*
-* my scss
+* My scss
 */
 @import "style/style.scss";
+
+/*
+* Import media
+*/
+@import "style/media.scss";
