@@ -24,6 +24,9 @@
 // Функции Sass, используемые в переменных и картах Bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
 
+// Мои переменные
+@import "style/variables";
+
 // Все переменные Bootstrap ($primary, $font-family-base, $grid-breakpoints и т.д.)
 @import "../../node_modules/bootstrap/scss/variables";
 
