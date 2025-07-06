@@ -1,0 +1,31 @@
+// My Figma MCP server configuration for Linux
+{
+    "servers": {
+        "my-mcp-server": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "figma-developer-mcp",
+                "--figma-api-key=Your-API-KEY",
+                "--stdio"
+            ]
+        }
+    }
+},
+
+// My Figma MCP server configuration for Windows
+{
+    "mcpServers": {
+        "My MCP Server": {
+            "command": "cmd",
+            "args": [
+                "/c",
+                "npx",
+                "-y",
+                "figma-developer-mcp",
+                "--figma-api-key=Your-API-KEY",
+                "--stdio"
+            ]
+        }
+    }
+}
