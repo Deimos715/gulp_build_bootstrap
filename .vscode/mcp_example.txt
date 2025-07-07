@@ -15,7 +15,7 @@
 
 // My Figma MCP server configuration for Windows
 {
-    "mcpServers": {
+    "servers": {
         "My MCP Server": {
             "command": "cmd",
             "args": [
