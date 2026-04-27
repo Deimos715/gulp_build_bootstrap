@@ -3,7 +3,8 @@ import sass from "gulp-sass";
 import * as sassCompiler from "sass";
 import concat from "gulp-concat";
 import uglify from "gulp-uglify";
-import browserSync from "browser-sync";
+import browserSyncLib from "browser-sync";
+const browserSync = browserSyncLib.create();
 import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean";
 import webp from "gulp-webp";
@@ -280,20 +281,12 @@ function styles() {
     .pipe(
       scss({
         implementation: sassCompiler,
-        // Не показывать deprecation-warnings из node_modules (Bootstrap и др.).
-        // Эти предупреждения относятся к коду зависимостей, а не нашего SCSS.
-        // Убирает шум в консоли, не влияя на результат сборки.
-        quietDeps: true,
         silenceDeprecations: [
-          // Warning: mixed-decls deprecation is obsolete. If you were previously silencing it, your code may now behave in unexpected ways. - отключено "legacy-js-api" вместе с "mixed-decls"
-          // "legacy-js-api",
-          // "mixed-decls",
+          "legacy-js-api",
+          "mixed-decls",
           "color-functions",
           "global-builtin",
           "import",
-          // Глушим deprecation warning старого Sass if() из Bootstrap.
-          // Код не наш, исправлять в проекте нельзя — ждём обновления Bootstrap.
-          "if-function",
         ], // Игнорирование предупреждений
       }).on('error', function (err) {
         console.error('SCSS compile error:\n', err.message);
@@ -314,20 +307,12 @@ function stylesBuild() {
     .pipe(
       scss({
         implementation: sassCompiler,
-        // Не показывать deprecation-warnings из node_modules (Bootstrap и др.).
-        // Эти предупреждения относятся к коду зависимостей, а не нашего SCSS.
-        // Убирает шум в консоли, не влияя на результат сборки.
-        quietDeps: true,
         silenceDeprecations: [
-          // Warning: mixed-decls deprecation is obsolete. If you were previously silencing it, your code may now behave in unexpected ways. - отключено "legacy-js-api" вместе с "mixed-decls"
-          // "legacy-js-api",
-          // "mixed-decls",
+          "legacy-js-api",
+          "mixed-decls",
           "color-functions",
           "global-builtin",
           "import",
-          // Глушим deprecation warning старого Sass if() из Bootstrap.
-          // Код не наш, исправлять в проекте нельзя — ждём обновления Bootstrap.
-          "if-function",
         ], // Игнорирование предупреждений
       })
     )
@@ -355,6 +340,7 @@ function watching() {
     server: {
       baseDir: "app/",
     },
+    ui: false,
   });
   watch(["app/scss/**/*.scss"], styles);
   watch(["app/images/src"], images);
